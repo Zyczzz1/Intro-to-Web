@@ -1,0 +1,132 @@
+/* =========================================
+   REPORTS PAGE STYLES
+   ========================================= */
+
+/* --- The Tab Container --- */
+.report-tabs {
+    display: flex;
+    flex-wrap: wrap; /* Allows tabs to stack on small screens */
+    gap: 10px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+/* --- The Tab Buttons --- */
+.tab-btn {
+    padding: 12px 25px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 30px; /* Rounded pill shape */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.tab-btn:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    color: #8C2F39; /* Your Main Maroon */
+}
+
+/* Active State (The selected tab) */
+.tab-btn.active {
+    background-color: #8C2F39; /* Your Main Maroon */
+    color: white;
+    border-color: #8C2F39;
+    box-shadow: 0 4px 10px rgba(140, 47, 57, 0.3);
+}
+
+/* --- Report Content Sections --- */
+.report-section {
+    display: none; /* Hidden by default */
+    animation: fadeEffect 0.5s; /* Smooth fade in */
+}
+
+/* This class is added by JS to show the section */
+.report-section.active {
+    display: block;
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* --- The Print Button --- */
+.btn-print {
+    background-color: #2C3E50; /* Your Main Navy */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right; /* Pushes button to the right */
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+
+.btn-print:hover {
+    background-color: #1a252f; /* Darker Navy */
+}
+
+/* --- Report Card Header --- */
+.report-section .card h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    color: #2C3E50;
+    font-size: 1.4rem;
+}
+
+/* --- Specific Table Highlights --- */
+/* Highlight rows yellow for low stock */
+tr[style*="background:#fff3cd"] td {
+    color: #856404;
+    font-weight: 500;
+}
+
+/* Highlight expired dates red */
+td[style*="color:red"] {
+    background-color: #fff5f5;
+    border-radius: 4px;
+}
+
+/* =========================================
+   PRINT MEDIA QUERY
+   (This runs only when you press Print)
+   ========================================= */
+@media print {
+    /* Hide Sidebar, Header, Tabs, and Print Button */
+    .sidebar, header, .report-tabs, .btn-print, .user-profile, .notif-badge {
+        display: none !important;
+    }
+
+    /* Expand Content to Full Page */
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    /* Remove Card Shadows for clean printing */
+    .card {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+
+    body {
+        background-color: white;
+    }
+}

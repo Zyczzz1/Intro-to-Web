@@ -1,0 +1,160 @@
+/* -------------------------------------- */
+/* 1. Main Layout & Header                */
+/* -------------------------------------- */
+
+.main-content {
+    background-color: #f4f6f9;
+    padding: 0;
+}
+
+header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+    padding: 15px 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* FIX: REMOVE MAX-WIDTH RESTRICTION & USE FULL WIDTH */
+.notif-container {
+    padding: 30px;
+    /* max-width is REMOVED */
+    width: 100%; /* Explicitly use full width of parent (main-content) */
+    margin: 0; /* Align content flush with left/right padding */
+    text-align: left !important;
+}
+
+/* Section Header (Main Title) */
+.section-header {
+    font-size: 1.5rem;
+    color: #495057;
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-align: left !important;
+}
+
+/* -------------------------------------- */
+/* 2. Notification Table Header Styling   */
+/* -------------------------------------- */
+
+.notif-table-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #6c757d;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    background-color: #e9ecef;
+    border-radius: 4px 4px 0 0;
+    border: 1px solid #dee2e6;
+    border-bottom: none;
+    width: 100%; /* ENSURE HEADER IS FULL WIDTH */
+}
+
+.notif-table-header .header-item {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.notif-table-header .header-item.date {
+    flex-shrink: 0;
+    width: 120px;
+    text-align: right;
+}
+
+/* -------------------------------------- */
+/* 3. Individual Notification Row Styling */
+/* -------------------------------------- */
+
+.notif-card {
+    background-color: #ffffff;
+    padding: 15px 15px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    border: 1px solid #dee2e6;
+    border-top: none;
+    transition: background-color 0.2s ease-in-out;
+    text-align: left !important;
+    width: 100%; /* ENSURE CARD IS FULL WIDTH */
+}
+
+.notif-card:hover {
+    background-color: #f0f2f5;
+    cursor: pointer;
+}
+
+.notif-container .notif-card:last-of-type {
+    border-radius: 0 0 4px 4px;
+    margin-bottom: 20px;
+}
+
+/* Icon */
+.notif-icon {
+    font-size: 1.6rem;
+    margin-right: 15px;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 25px;
+    text-align: center;
+}
+
+/* Notification Content (Will now stretch wide) */
+.notif-content {
+    flex-grow: 1; /* Allows it to take up the large remaining space */
+    max-width: none; /* REMOVE MAX-WIDTH LIMITATION */
+    text-align: left !important;
+    padding-right: 20px;
+}
+
+.notif-content h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #343a40;
+    text-align: left !important;
+}
+
+.notif-content p {
+    margin: 3px 0 0 0;
+    color: #495057;
+    line-height: 1.5;
+    font-size: 1.1rem;
+    text-align: left !important;
+}
+
+/* Date Column */
+.notif-date {
+    font-size: 1rem;
+    color: #6c757d;
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-align: right !important;
+    width: 120px;
+}
+
+
+/* -------------------------------------- */
+/* 4. Color Coding and 5. Empty State (No Change) */
+/* -------------------------------------- */
+
+.notif-warning .notif-icon { color: #ffc107; }
+.notif-warning .notif-content h4 { color: #9f6300; }
+.notif-danger .notif-icon { color: #dc3545; }
+.notif-danger .notif-content h4 { color: #921927; }
+
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    margin-top: 30px;
+    background-color: #ffffff;
+    color: #6c757d;
+}
+
+.empty-state i { color: #adb5bd; }
+.empty-state p { font-size: 1.2rem; margin: 0; }

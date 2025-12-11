@@ -1,0 +1,160 @@
+/* --- INVENTORY TABLE --- */
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.inventory-table th {
+    background: #2C3E50; /* Dark Navy Header */
+    padding: 15px;
+    text-align: left;
+    color: white;
+    font-weight: 600;
+}
+.inventory-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+.inventory-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* --- STATUS COLORS --- */
+.low-stock { color: orange; font-weight: bold; }
+.expired { color: #dc3545; font-weight: bold; }
+
+/* --- BUTTONS --- */
+.btn-add {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s;
+}
+.btn-add:hover { background: #218838; }
+
+.btn-request {
+    background: #17a2b8;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.btn-request:hover { background: #138496; }
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+    transition: transform 0.2s;
+}
+.btn-icon:hover { transform: scale(1.2); }
+.edit { color: #007bff; }
+.delete { color: #dc3545; }
+
+/* --- MODALS --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0; top: 0; 
+    width: 100%; height: 100%; 
+    background-color: rgba(0,0,0,0.5); 
+    backdrop-filter: blur(2px);
+}
+.modal-content {
+    background-color: white;
+    margin: 8% auto; 
+    padding: 25px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    animation: slideDown 0.3s ease-out;
+}
+@keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.close-btn {
+    position: absolute;
+    right: 20px; top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #aaa;
+}
+.close-btn:hover { color: #000; }
+
+.modal-content h2 {
+    color: #2C3E50;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 10px;
+}
+
+/* --- FORMS --- */
+.form-group { margin-bottom: 15px; }
+.form-group label { 
+    display: block; 
+    margin-bottom: 8px; 
+    font-weight: bold; 
+    color: #333;
+}
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.form-group input:focus, .form-group select:focus {
+    border-color: #8C2F39;
+    outline: none;
+}
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: #8C2F39;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+.btn-submit:hover { background: #6c242c; }
+
+/* --- ALERTS --- */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+.alert.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.alert.error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+.alert.warning { background: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
